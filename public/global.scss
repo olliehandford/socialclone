@@ -1,0 +1,75 @@
+@charset "utf-8";
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "../node_modules/bulma/sass/utilities/functions";
+
+$primary: #7950f2;
+$red: #fa5252;
+
+html,
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+body > footer {
+    margin-top: auto;
+}
+
+.bar {
+    width: 100%;
+    height: 5px;
+    background-color: $primary;
+}
+
+
+@import "../node_modules/bulma/bulma";
+
+/* We don't need checkbox to be displayed in order for it to work */
+.toggler {
+  display: none;
+}
+
+/* Below are all the functionalities */
+
+/* Hamburger changes to X when toggler is checked */
+.navbar .toggler:checked + .navbar-brand .burger span:nth-child(1) {
+  -webkit-transform: translateY(5px) rotate(45deg);
+  transform: translateY(5px) rotate(45deg);
+}
+.navbar .toggler:checked + .navbar-brand .burger span:nth-child(2) {
+  opacity: 0;
+}
+.navbar .toggler:checked + .navbar-brand .burger span:nth-child(3) {
+  -webkit-transform: translateY(-5px) rotate(-45deg);
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+/*  Displays menu when toggler is checked only on mobile/tablet */
+@media screen and (max-width: 1024px) {
+  .navbar .toggler:checked ~ .navbar-menu {
+    display: block;
+  }
+  /* We don't want menu to be displayed on mobile by default */
+  .navbar-menu {
+    display: none;
+  }
+}
+
+/* For dropdown functionality */
+
+/* Same reason as for checkbox */
+.has-dropdown input[type=checkbox] {
+  display: none;
+}
+/* Hide by default */
+.navbar-dropdown {
+  display: none;
+}
+/* The functionality */
+#dropdown1:checked ~ #dropdown-content1 {
+    display: block;
+}
+
+.navbar-dropdown.dropdown-right { left: calc(-50% + 4px); }
+   
+    
